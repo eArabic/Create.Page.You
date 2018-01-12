@@ -1,13 +1,10 @@
 <html>
 <head><title>TextPaste</title></head>
 <body>
-  <h1>TextPaste: 
-A simple way to create and share .txt files.
-Coded by internetperson.
-  </h1>
+  <h1>TextPaste: A simple way to create and share .txt files. Coded by internetperson.</h1>
   <form method="post" action="">
     <input type="text" name="typed" value="<?= isset($_POST['typed']) ? htmlspecialchars($_POST['typed']) : '' ?>" />
-    <input type="submit" name="Paste!" />
+    <input type="submit" value="Paste!" />
   </form>
 
 <?php
