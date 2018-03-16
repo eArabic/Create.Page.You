@@ -61,7 +61,7 @@
       font-weight: bold;
     }
   </style>
-  <?php
+<?php
 function generateRandomString($length = 12) {
 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 $charactersLength = strlen($characters);
