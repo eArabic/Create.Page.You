@@ -86,4 +86,5 @@ fwrite($handle, $arabic);
 $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'.$my_file;
 echo "<br><span><a href='".$home_url."'>Link Latest File You Created</a></span></p>";
 }
+                
 ?>
