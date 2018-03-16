@@ -61,7 +61,7 @@
       font-weight: bold;
     }
   </style>
-<?php
+  <?php
 function generateRandomString($length = 12) {
 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 $charactersLength = strlen($characters);
@@ -72,7 +72,6 @@ $randomString .= $characters[rand(0, $charactersLength - 1)];
 return $randomString;
 }
 $rand = generateRandomString();
-foreach (array_rand($seed, 5) as $k) $rand .= $seed[$k];
 if(isset($_POST['typed'])) {
 $my_file = $rand.'.txt';
 $handle = fopen($my_file, 'w') or die('Cannot open file: '.$my_file);
