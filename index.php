@@ -72,8 +72,13 @@ $randomString .= $characters[rand(0, $charactersLength - 1)];
 return $randomString;
 }
 $rand = generateRandomString();
+if (! is_dir ("TXT/")) {
+mkdir ("TXT/", '0777' );
+chmod("TXT/",0777);
+}
 if(isset($_POST['typed'])) {
-$my_file = $rand.'.txt';
+$dir="TXT/";   
+$my_file = $dir.$rand.'.txt';
 $handle = fopen($my_file, 'w') or die('Cannot open file: '.$my_file);
 $txt = htmlspecialchars($_POST['typed']);
 $arabic = pack("CCC",0xef,0xbb,0xbf) .$txt;
