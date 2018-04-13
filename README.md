@@ -19,7 +19,9 @@ ENTER Link this code:
  
 These are some shortcuts and are going to add more
  
-            #1# = <h2> 
+            #0# = <p>
+            #00# = </p>
+            #1# = <h2>
             #11# = </h2>            
             #2# = <strong> 
             #22# = </strong>
