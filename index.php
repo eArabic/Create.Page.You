@@ -6,7 +6,7 @@
   <body>
     <h1>TextPaste
     </h1>
-    <p>A simple way to create and share .txt files. Coded by internetperson.
+    <p>A simple way to create and share (HTML) files. Coded by internetperson.
     </p>
     <form method="post" action="">
       <textarea type="text" name="typed" value="<?= isset($_POST['typed']) ? htmlspecialchars($_POST['typed']) : '' ?>"></textarea>
@@ -62,6 +62,36 @@
     }
   </style>
 <?php
+    function strReplaceArabic($subject)
+    {
+        $replace = array(
+            '#0#' => "<p>",
+            '#00#' => "</p>",
+            '#1#' => "<h2>",
+            '#11#' => "</h2>",            
+            '#2#' => "<strong>",
+            '#22#' => '</strong>',
+            '#3#' => '<hr>',
+            '#4#' => '<br>',
+            '#5#' => '<img src="',  
+            '#55#' => '">',
+            '#6#' => '<center>',
+            '#7#' => '<title>',
+            '#77#' => '</title>',   
+            '#8#' => '<h1>',
+            '#88#' => '</h1>',
+            '#9#' => '<a href="',
+            '#99#' => '">',
+            '#999#' => '</a>',
+            '#@#' => '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+'
+        );
+        return str_replace(array_keys($replace), array_values($replace), $subject);
+    }
+
+
+
+/////////////////////////
 function generateRandomString($length = 12) {
 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 $charactersLength = strlen($characters);
@@ -72,17 +102,18 @@ $randomString .= $characters[rand(0, $charactersLength - 1)];
 return $randomString;
 }
 $rand = generateRandomString();
-if (! is_dir ("TXT/")) {
-mkdir ("TXT/", '0777' );
-chmod("TXT/",0777);
+if (! is_dir ("Data/")) {
+mkdir ("Data/", '0777' );
+chmod("Data/",0777);
 }
 if(isset($_POST['typed'])) {
-$dir="TXT/";   
-$my_file = $dir.$rand.'.txt';
+$dir="Data/";   
+$my_file = $dir.$rand.'.html';
 $handle = fopen($my_file, 'w') or die('Cannot open file: '.$my_file);
 $txt = htmlspecialchars($_POST['typed']);
 $arabic = pack("CCC",0xef,0xbb,0xbf) .$txt;
-fwrite($handle, $arabic);
+$end=strReplaceArabic($arabic);
+fwrite($handle, $end);
 $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'.$my_file;
 echo "<br><span><a href='".$home_url."'>Link Latest File You Created</a></span></p>";
 }
