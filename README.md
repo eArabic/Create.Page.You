@@ -1,4 +1,4 @@
-# textpaste
+# Create.Page.You
 A simple way to create and share .HTML files.
 
 Examples:
