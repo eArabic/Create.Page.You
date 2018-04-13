@@ -3,6 +3,8 @@ A simple way to create and share .HTML files.
 
 Examples:
 
+<img src="https://github.com/eArabic/Text-Paste/blob/master/image.png?raw=true">
+
 http://arabica.aba.ae/html/index.php
 
 
