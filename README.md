@@ -3,6 +3,9 @@ A simple way to create and share .HTML files.
 
 Examples:
 
+http://arabica.aba.ae/html/index.php
+
+
 ENTER image this code:
 
 #5#https://html.com/wp-content/uploads/flamingo.jpg#55#
