@@ -1,7 +1,14 @@
 # Create.Page.You
 A simple way to create and share .HTML files.
 
-update Name Page You
+Features:
+1. Create a page in your name with some style features.
+2. Protection by special password.
+3. Encrypt the entire text 100% safe (in progress).
+4. Browse the files created (in progress).
+5. A special page about addiction? (In progress).
+6. System Write comments on the page? (In progress).
+
 
 Examples:
 
