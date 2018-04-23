@@ -6,7 +6,7 @@ Features:
 2. Protection by special password.
 3. Encrypt the entire text 100% safe (in progress).
 4. Browse the files created (in progress).
-5. A special page about addiction? (In progress).
+5. A special page admin? (In progress).
 6. System Write comments on the page? (In progress).
 
 
