@@ -144,5 +144,6 @@ class=\"alert alert-success\">
 </p>";
 #header("location:". $home_url);
 }
-}  
+}
+                  
 ?>
