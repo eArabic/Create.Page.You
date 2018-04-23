@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<?php $filename="Readlist.php"; echo "<hr><h1 class=\"container\">".'<a href="'.$filename.'"><img class=o src="if_edit_173002.png"/></a></h1><hr>';?>
 <html>
   <head>
     <title>TextPaste
@@ -17,6 +18,9 @@
         </br>
         <label>Name Page You</label><br>
       <input type="text" value="NamePageYou"  name="Page"/> <br>
+        </br>
+        <label>Page You PassWord</label><br>
+      <input type="text" value="123456789"  name="Pess"/> <br>      
      <br><input type="submit" name="submit" value="Paste!" />
     </form>
   </div>
@@ -110,13 +114,13 @@ if (! is_dir ("Data/")) {
 mkdir ("Data/", '0777' );
 chmod("Data/",0777);
 }
-$dir="Data/"; 
-$phpadd = "
-<?php
-include_once  'php.php';
-include 'style.php';
-?> ";
-$exe=".html";
+$dir="Data/";
+$PassWord = $_POST["Pess"];
+$Pass= "<?php include '../Pass.php'; lock(\"$PassWord\", 1); ?>" ;
+
+$phpadd =
+" <?php ?> ";
+$exe=".php";
 $randPage=strip_tags( $_POST["Page"]);
 $last=$dir.$randPage.$exe;
 if($_POST["submit"]) {
@@ -127,12 +131,12 @@ echo "
 </h2>
 ";
 } else {
-$my_file = $dir.$randPage.'.html';
+$my_file = $dir.$randPage.'.php';
 $handle = fopen($my_file, 'w') or die('Cannot open file: '.$my_file);
-$txt = htmlspecialchars($_POST['typed']);
+$txt = htmlspecialchars(strip_tags($_POST['typed']));
 $arabic = pack("CCC",0xef,0xbb,0xbf) .$txt;
 $end=strReplaceArabic($arabic);
-fwrite($handle, $end);
+fwrite($handle,$Pass.$end);
 $home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/'.$my_file;
 echo "
 <br>
@@ -146,3 +150,6 @@ class=\"alert alert-success\">
 }
 }  
 ?>
+<img src="https://github.com/eArabic/Create.Page.You/blob/master/shortcuts.png?raw=true" alt="com">
+
+
