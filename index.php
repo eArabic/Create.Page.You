@@ -73,6 +73,7 @@
   }
 </style>
 <?php
+require 'function.php';  
 function strReplaceArabic($subject)
 {
 $replace = array(
