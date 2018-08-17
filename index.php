@@ -149,7 +149,8 @@ class=\"alert alert-success\">
 </p>";
 #header("location:". $home_url);
 }
-}  
+}
+                  
 ?>
 <img src="https://github.com/eArabic/Create.Page.You/blob/master/shortcuts.png?raw=true" alt="com">
 
